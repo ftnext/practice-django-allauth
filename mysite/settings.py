@@ -140,10 +140,16 @@ ACCOUNT_LOGOUT_REDIRECT_URL = "account_login"  # 自動で作られる（サイ�
 ACCOUNT_LOGOUT_ON_GET = True
 
 SOCIALACCOUNT_PROVIDERS = {
+    "github": {
+        "APP": {
+            "client_id": env("GITHUB_OAUTH_CLIENT_ID"),
+            "secret": env("GITHUB_OAUTH_SECRET"),
+        }
+    },
     "slack": {
         "APP": {
             "client_id": env("SLACK_OAUTH_CLIENT_ID"),
             "secret": env("SLACK_OAUTH_SECRET"),
         }
-    }
+    },
 }
