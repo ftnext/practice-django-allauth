@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.slack',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +138,12 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = "home"
 ACCOUNT_LOGOUT_REDIRECT_URL = "account_login"  # 自動で作られる（サイトを使っている）
 ACCOUNT_LOGOUT_ON_GET = True
+
+SOCIALACCOUNT_PROVIDERS = {
+    "slack": {
+        "APP": {
+            "client_id": env("SLACK_OAUTH_CLIENT_ID"),
+            "secret": env("SLACK_OAUTH_SECRET"),
+        }
+    }
+}
