@@ -12,7 +12,10 @@
       ようこそ {{ user.get_username }} さん
       <p><a href="{% url 'account_logout' %}">ログアウト</a></p>
     {% else %}
-      <p><a href="{% url 'account_login' %}">ログイン</a></p>
+      お持ちの外部アカウントでログインをどうぞ
+      <ul class="socialaccount_providers">
+        {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+      </ul>
     {% endif %}
   </body>
 </html>
